@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+     <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>NovelList</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://github.com/jengori/novel-list">
+            <img src="images/header_logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="NovelList logo">
+                 NovelList
+            </a>
+</nav>
+    <div class="container mt-3">
+        <h2 class="p-3 text-lg-left text-md-center">{{ title }}</h2>
+    </div>
+
+    <div class="container p-5">
+       <ol class="list-group">
+       {% for item in book_list %}
+           <li>
+               <div class="container">
+                    <div class="row">
+                       <div class="col-9">
+                           <h4>{{ item.title }}, {{item.author}}</h4>
+                           <p><strong>Publisher:</strong> {{ item.publisher }}</p>
+                           <p><strong>Description:</strong> {{ item.description }}</p>
+                       </div>
+                       <div class="col-3 p-2">
+                          <img height="200" src="{{ item.book_image }}">
+                       </div>
+                    </div>
+               </div>
+           </li>
+       {% endfor %}
+       </ol>
+    </div>
+    <footer class="bg-dark text-center small text-light py-3">
+        <p>Copyright &copy; 2023 <a href="https://github.com/jengori/novel-list" class="text-light">NovelList</a></p>
+  </footer>
+</body>
+</html>
